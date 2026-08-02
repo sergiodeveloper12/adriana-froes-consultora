@@ -1,0 +1,1074 @@
+/* =========================================
+   Adriana Froes Consultora
+   Landing Page CSS
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap');
+
+
+:root {
+
+  --color-bg: #FAF7F2;
+  --color-bg-alt: #F0E9DD;
+  --color-card: #FFFFFF;
+
+  --color-dark: #3E2C23;
+  --color-wood: #6B4A34;
+
+  --color-gold: #B08D57;
+  --color-gold-light: #D9B978;
+
+  --color-text: #2A211C;
+  --color-text-soft: #6B5F52;
+
+  --border: #E4D9C5;
+
+  --font-title: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+
+  --radius: 20px;
+
+  --shadow:
+  0 15px 35px rgba(62,44,35,.12);
+
+}
+
+
+* {
+box-sizing:border-box;
+}
+
+
+html {
+scroll-behavior:smooth;
+}
+
+
+body {
+
+margin:0;
+
+background:var(--color-bg);
+
+color:var(--color-text);
+
+font-family:var(--font-body);
+
+line-height:1.6;
+
+}
+
+
+h1,h2,h3,h4 {
+
+font-family:var(--font-title);
+
+color:var(--color-dark);
+
+line-height:1.2;
+
+}
+
+
+p {
+
+color:var(--color-text-soft);
+
+}
+
+
+a {
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+.container {
+
+max-width:1160px;
+
+margin:auto;
+
+padding:0 24px;
+
+}
+
+
+/* ================= HEADER ================= */
+
+
+.site-header {
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+background:rgba(250,247,242,.95);
+
+backdrop-filter:blur(10px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+
+.header-inner {
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 24px;
+
+}
+
+
+.logo {
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+
+.logo-mark {
+
+width:46px;
+
+height:46px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+background:linear-gradient(
+135deg,
+var(--color-gold-light),
+var(--color-wood)
+);
+
+color:white;
+
+font-family:var(--font-title);
+
+font-weight:bold;
+
+}
+
+
+.logo-text {
+
+font-family:var(--font-title);
+
+font-size:1.4rem;
+
+font-weight:600;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+.logo-text small {
+
+font-family:var(--font-body);
+
+font-size:.65rem;
+
+color:var(--color-gold);
+
+letter-spacing:.15em;
+
+text-transform:uppercase;
+
+}
+
+
+.main-nav ul {
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+
+}
+
+
+.main-nav a {
+
+font-weight:500;
+
+}
+
+
+.main-nav a:hover {
+
+color:var(--color-gold);
+
+}
+/* ================= HERO ================= */
+
+
+.hero {
+
+padding:80px 0;
+
+background:
+radial-gradient(
+800px 400px at 90% 10%,
+rgba(217,185,120,.25),
+transparent
+);
+
+}
+
+
+.hero-inner {
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+gap:60px;
+
+}
+
+
+.eyebrow {
+
+font-size:.8rem;
+
+font-weight:600;
+
+letter-spacing:.15em;
+
+text-transform:uppercase;
+
+color:var(--color-gold);
+
+margin-bottom:15px;
+
+}
+
+
+.hero-content h1 {
+
+font-size:clamp(2.2rem,5vw,3.5rem);
+
+max-width:15ch;
+
+margin-bottom:25px;
+
+}
+
+
+.hero-text {
+
+font-size:1.1rem;
+
+max-width:48ch;
+
+}
+
+
+/* BOTÕES */
+
+
+.hero-actions {
+
+display:flex;
+
+gap:16px;
+
+margin:30px 0;
+
+flex-wrap:wrap;
+
+}
+
+
+.btn {
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:14px 30px;
+
+border-radius:10px;
+
+font-weight:600;
+
+transition:.3s;
+
+border:1px solid transparent;
+
+cursor:pointer;
+
+}
+
+
+
+.btn-primary {
+
+background:
+linear-gradient(
+135deg,
+var(--color-gold-light),
+var(--color-gold)
+);
+
+color:var(--color-dark);
+
+box-shadow:
+0 10px 25px rgba(176,141,87,.35);
+
+}
+
+
+.btn-primary:hover {
+
+transform:translateY(-3px);
+
+}
+
+
+
+.btn-ghost {
+
+border-color:var(--color-dark);
+
+color:var(--color-dark);
+
+}
+
+
+
+.btn-ghost:hover {
+
+background:var(--color-dark);
+
+color:white;
+
+}
+
+
+.btn-outline {
+
+border:1px solid var(--color-gold);
+
+color:var(--color-gold);
+
+}
+
+
+.btn-outline:hover {
+
+background:var(--color-gold);
+
+color:white;
+
+}
+
+
+.btn-block {
+
+width:100%;
+
+}
+
+
+
+/* IMAGEM PRINCIPAL */
+
+
+.hero-visual img {
+
+width:100%;
+
+height:480px;
+
+object-fit:cover;
+
+border-radius:30px;
+
+box-shadow:var(--shadow);
+
+}
+
+
+
+/* BENEFÍCIOS */
+
+
+.hero-badges {
+
+display:flex;
+
+gap:25px;
+
+padding:0;
+
+list-style:none;
+
+font-size:.9rem;
+
+}
+
+
+.hero-badges li::before {
+
+content:"✓ ";
+
+color:var(--color-gold);
+
+font-weight:bold;
+
+}
+/* ================= PRODUTOS ================= */
+
+
+.produtos {
+
+padding:80px 0;
+
+}
+
+
+
+.center {
+
+text-align:center;
+
+}
+
+
+
+.section-title {
+
+font-size:2.4rem;
+
+margin-bottom:15px;
+
+}
+
+
+
+.section-subtitle {
+
+max-width:650px;
+
+margin:0 auto 40px;
+
+}
+
+
+
+/* GRID PRODUTOS */
+
+
+.cards-grid {
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+
+.card {
+
+background:white;
+
+border-radius:var(--radius);
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+border:1px solid var(--border);
+
+transition:.3s;
+
+}
+
+
+.card:hover {
+
+transform:translateY(-8px);
+
+}
+
+
+
+.card-media {
+
+height:230px;
+
+overflow:hidden;
+
+background:var(--color-bg-alt);
+
+}
+
+
+
+.card-media img {
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:.4s;
+
+}
+
+
+
+.card:hover img {
+
+transform:scale(1.05);
+
+}
+
+
+
+.card-body {
+
+padding:25px;
+
+}
+
+
+
+.card-body h3 {
+
+font-size:1.5rem;
+
+}
+
+
+
+.card-body p {
+
+min-height:90px;
+
+}
+
+
+
+/* ================= ORÇAMENTO ================= */
+
+
+.orcamento {
+
+padding:80px 0;
+
+background:var(--color-bg-alt);
+
+}
+
+
+
+.orcamento-inner {
+
+display:grid;
+
+grid-template-columns:.8fr 1.2fr;
+
+gap:50px;
+
+align-items:start;
+
+}
+
+
+
+.info-list {
+
+list-style:none;
+
+padding:0;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+
+.info-list li {
+
+font-weight:500;
+
+color:var(--color-dark);
+
+}
+
+
+
+/* FORMULARIO */
+
+
+.form-orcamento {
+
+background:white;
+
+padding:35px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow);
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+}
+
+
+
+.form-row {
+
+display:flex;
+
+flex-direction:column;
+
+gap:8px;
+
+}
+
+
+
+.form-row-full {
+
+grid-column:1/-1;
+
+}
+
+
+
+.form-row label {
+
+font-weight:600;
+
+font-size:.9rem;
+
+}
+
+
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+
+
+padding:14px;
+
+border-radius:10px;
+
+border:1px solid var(--border);
+
+font-family:var(--font-body);
+
+background:var(--color-bg);
+
+}
+
+
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+
+
+outline:none;
+
+border-color:var(--color-gold);
+
+box-shadow:
+0 0 0 3px rgba(176,141,87,.2);
+
+}
+/* ================= CONFIANÇA ================= */
+
+
+.confianca {
+
+padding:80px 0;
+
+}
+
+
+.confianca-grid {
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:30px;
+
+}
+
+
+.confianca-item {
+
+text-align:center;
+
+}
+
+
+.confianca-icon {
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+width:55px;
+
+height:55px;
+
+margin:0 auto 15px;
+
+border-radius:50%;
+
+border:1px solid var(--color-gold);
+
+color:var(--color-gold);
+
+font-size:1.2rem;
+
+}
+
+
+
+.confianca-item h3 {
+
+font-size:1.3rem;
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+.site-footer {
+
+background:var(--color-dark);
+
+color:white;
+
+padding-top:60px;
+
+}
+
+
+.footer-inner {
+
+display:grid;
+
+grid-template-columns:1.5fr 1fr 1fr;
+
+gap:40px;
+
+padding-bottom:40px;
+
+}
+
+
+.footer-brand {
+
+font-family:var(--font-title);
+
+font-size:1.4rem;
+
+color:white;
+
+}
+
+
+.footer-desc {
+
+color:#ddd;
+
+}
+
+
+.footer-col h4 {
+
+color:white;
+
+letter-spacing:.1em;
+
+text-transform:uppercase;
+
+font-size:.85rem;
+
+}
+
+
+.footer-col ul {
+
+list-style:none;
+
+padding:0;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+
+.footer-col a {
+
+color:#ddd;
+
+}
+
+
+.footer-col a:hover {
+
+color:var(--color-gold-light);
+
+}
+
+
+.footer-bottom {
+
+text-align:center;
+
+padding:20px;
+
+border-top:1px solid rgba(255,255,255,.1);
+
+color:#ccc;
+
+}
+
+
+
+/* ================= WHATSAPP ================= */
+
+
+.whatsapp-float {
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:#25D366;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+z-index:999;
+
+}
+
+
+
+/* ================= RESPONSIVO ================= */
+
+
+@media(max-width:960px){
+
+
+.hero-inner,
+.orcamento-inner {
+
+grid-template-columns:1fr;
+
+}
+
+
+.hero-visual {
+
+order:-1;
+
+}
+
+
+.cards-grid {
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+.confianca-grid {
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+.footer-inner {
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:640px){
+
+
+.container {
+
+padding:0 18px;
+
+}
+
+
+.header-inner {
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+.main-nav ul {
+
+flex-direction:column;
+
+gap:15px;
+
+padding:0;
+
+}
+
+
+
+.hero {
+
+padding:40px 0;
+
+}
+
+
+.hero-content h1 {
+
+font-size:2.2rem;
+
+}
+
+
+
+.hero-actions {
+
+flex-direction:column;
+
+}
+
+
+
+.hero-actions .btn {
+
+width:100%;
+
+}
+
+
+
+.hero-visual img {
+
+height:300px;
+
+}
+
+
+
+.cards-grid {
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.form-orcamento {
+
+grid-template-columns:1fr;
+
+padding:25px;
+
+}
+
+
+
+.confianca-grid {
+
+grid-template-columns:1fr;
+
+}
+
+
+
+.footer-inner {
+
+grid-template-columns:1fr;
+
+}
+
+
+
+}
