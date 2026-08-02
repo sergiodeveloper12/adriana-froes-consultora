@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-
   const anoAtual = document.getElementById("anoAtual");
 
   if (anoAtual) {
@@ -8,70 +7,111 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-
   const form = document.getElementById("formOrcamento");
+  const feedback = document.getElementById("formFeedback");
+  const botao = form?.querySelector("button");
+
+
+  function mensagem(texto, tipo) {
+
+    if (!feedback) return;
+
+    feedback.textContent = texto;
+    feedback.setAttribute("data-state", tipo);
+
+  }
 
 
   if (!form) {
-    console.log("Formulário não encontrado");
+    console.error("Formulário não encontrado");
     return;
   }
 
 
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
 
 
-    event.preventDefault();
+    const dados = {
+
+      nome: form.querySelector('[name="nome"]').value.trim(),
+
+      email: form.querySelector('[name="email"]').value.trim(),
+
+      telefone: form.querySelector('[name="telefone"]').value.trim(),
+
+      produto: form.querySelector('[name="produto"]').value,
+
+      mensagem: form.querySelector('[name="mensagem"]').value.trim()
+
+    };
 
 
-    const botao = form.querySelector("button");
 
+    if (!dados.nome || !dados.email || !dados.telefone) {
 
-    if (botao) {
-      botao.disabled = true;
-      botao.textContent = "Enviando...";
+      mensagem(
+        "Preencha nome, e-mail e telefone.",
+        "erro"
+      );
+
+      return;
+
     }
-
-
-
-    const dados = new FormData(form);
 
 
 
     try {
 
 
-      const resposta = await fetch("/", {
-
-        method: "POST",
-
-        headers: {
-          "Content-Type":
-          "application/x-www-form-urlencoded"
-        },
+      botao.disabled = true;
 
 
-        body:
-        new URLSearchParams(dados).toString()
+      mensagem(
+        "Enviando solicitação...",
+        "enviando"
+      );
 
 
-      });
+
+      const resposta = await fetch(
+
+        "COLE_AQUI_O_WEBHOOK_N8N",
+
+        {
+
+          method: "POST",
+
+          headers: {
+
+            "Content-Type": "application/json"
+
+          },
+
+          body: JSON.stringify(dados)
+
+        }
+
+      );
 
 
 
       if (!resposta.ok) {
 
-        throw new Error(
-          "Erro no envio"
-        );
+        throw new Error("Erro no envio");
 
       }
 
 
 
-      alert(
-        "Solicitação enviada com sucesso!"
+      mensagem(
+
+        "Solicitação enviada com sucesso! Em breve entraremos em contato.",
+
+        "sucesso"
+
       );
 
 
@@ -82,27 +122,22 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (erro) {
 
 
-      console.error(
-        erro
+      console.error(erro);
+
+
+      mensagem(
+
+        "Não foi possível enviar agora. Tente novamente.",
+
+        "erro"
+
       );
-
-
-      alert(
-        "Erro ao enviar formulário."
-      );
-
 
 
     } finally {
 
 
-      if (botao) {
-
-        botao.disabled = false;
-        botao.textContent =
-        "Enviar solicitação";
-
-      }
+      botao.disabled = false;
 
 
     }
@@ -112,4 +147,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
-// netlify refresh
