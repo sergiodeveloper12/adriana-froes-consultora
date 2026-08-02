@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-  // Ano atual no rodapé
-
   const anoAtual = document.getElementById("anoAtual");
 
   if (anoAtual) {
@@ -11,12 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // Formulário Netlify
-
   const form = document.getElementById("formOrcamento");
 
 
-  if (!form) return;
+  if (!form) {
+    console.log("Formulário não encontrado");
+    return;
+  }
 
 
 
@@ -26,45 +25,45 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
 
-    const botao =
-      form.querySelector("button[type='submit']");
+    const botao = form.querySelector("button");
 
 
-    botao.disabled = true;
+    if (botao) {
+      botao.disabled = true;
+      botao.textContent = "Enviando...";
+    }
 
-    botao.textContent = "Enviando...";
 
 
-
-    const dados =
-      new FormData(form);
+    const dados = new FormData(form);
 
 
 
     try {
 
 
-      const resposta =
-        await fetch("/", {
+      const resposta = await fetch("/", {
 
-          method: "POST",
+        method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/x-www-form-urlencoded"
-          },
+        headers: {
+          "Content-Type":
+          "application/x-www-form-urlencoded"
+        },
 
-          body:
-            new URLSearchParams(dados).toString()
 
-        });
+        body:
+        new URLSearchParams(dados).toString()
+
+
+      });
 
 
 
       if (!resposta.ok) {
 
         throw new Error(
-          "Falha no envio"
+          "Erro no envio"
         );
 
       }
@@ -72,9 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       alert(
-        "Solicitação enviada com sucesso! Em breve entraremos em contato."
+        "Solicitação enviada com sucesso!"
       );
-
 
 
       form.reset();
@@ -90,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       alert(
-        "Não foi possível enviar agora. Tente novamente."
+        "Erro ao enviar formulário."
       );
 
 
@@ -98,17 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
     } finally {
 
 
-      botao.disabled = false;
+      if (botao) {
 
-      botao.textContent =
+        botao.disabled = false;
+        botao.textContent =
         "Enviar solicitação";
+
+      }
 
 
     }
 
 
   });
-
 
 
 });
